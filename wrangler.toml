@@ -1,0 +1,9 @@
+name = "mapeo-releases-worker"
+type = "webpack"
+
+account_id = "058b57748d31e63e7bfdb0f690cb8ba7"
+workers_dev = true
+
+[env.production]
+route = "releases.mapeo.app/*"
+zone_id = "103a85096729617a6992aef9c67289ba"

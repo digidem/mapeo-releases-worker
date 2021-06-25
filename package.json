@@ -1,0 +1,21 @@
+{
+  "name": "mapeo-releases-worker",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Redirect to latest Mapeo release/beta in S3 bucket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "Gregor MacLennan <gmaclennan@digital-democracy.org>",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.3.1"
+  },
+  "dependencies": {
+    "itty-router": "^2.1.9",
+    "js-yaml": "^4.1.0",
+    "serverless-cloudflare-workers": "^1.2.0"
+  }
+}
