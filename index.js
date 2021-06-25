@@ -1,3 +1,4 @@
+// @ts-check
 import { Router } from 'itty-router'
 import yaml from 'js-yaml'
 import path from 'path'
@@ -23,7 +24,11 @@ router.get('/*/(latest|beta)-(win|mac|linux)', async request => {
   if (response.status === 404) return
   // Logs a warning because s3 returns everything as application/octet-stream
   const infoString = await response.text()
+  /** @type {any} */
   const info = yaml.load(infoString)
+  if (!info || typeof info.path !== 'string') {
+    return new Response('Not Found!', { status: 404 })
+  }
 
   const redirectUrl = new URL(request.url)
   redirectUrl.pathname = path.dirname(redirectUrl.pathname) + '/' + info.path
@@ -61,6 +66,7 @@ addEventListener('fetch', e => {
   e.respondWith(router.handle(e.request).catch(onError))
 })
 
+/** @param {Error & { status?: number }} error */
 function onError(error) {
   console.error(error)
   return new Response('Error: ' + error.message || 'Server Error', {
