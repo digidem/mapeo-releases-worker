@@ -34,11 +34,13 @@ wrangler publish --env production
 
 ### Download URLs
 
-- Mapeo Desktop Windows: https://releases.mapeo.app/desktop/latest-win
+- Mapeo Desktop Windows 64-bit: https://releases.mapeo.app/desktop/latest-win
+- Mapeo Desktop Windows 32-bit: https://releases.mapeo.app/desktop/ia32/latest-win
 - Mapeo Desktop Mac: https://releases.mapeo.app/desktop/latest-mac
 - Mapeo Desktop Linux: https://releases.mapeo.app/desktop/latest-linux
 
-- Mapeo for ICCAs Desktop Windows: https://releases.mapeo.app/desktop-icca/latest-win
+- Mapeo for ICCAs Desktop Windows 64-bit: https://releases.mapeo.app/desktop-icca/latest-win
+- Mapeo for ICCAs Desktop Windows 32-bit: https://releases.mapeo.app/desktop-icca/ia32/latest-win
 - Mapeo for ICCAs Desktop Mac: https://releases.mapeo.app/desktop-icca/latest-mac
 - Mapeo for ICCAs Desktop Linux: https://releases.mapeo.app/desktop-icca/latest-linux
 
