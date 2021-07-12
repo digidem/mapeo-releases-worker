@@ -39,14 +39,14 @@ router.get('/desktop/*/(latest|beta)-(win|mac|linux)', async (request) => {
 /**
  * Don't proxy the S3 bucket listing URL which is what AWS returns for the root request
  */
-router.get('/', request => {
+router.get('/', (request) => {
   return new Response('Not Found!', { status: 404 })
 })
 
 /**
  * Proxy all other requests to the s3 bucket
  */
-router.all('*', async request => {
+router.all('*', async (request) => {
   const url = new URL(request.url)
   url.hostname = s3hostname
   url.pathname = `/${s3bucket}${url.pathname}`
@@ -62,7 +62,7 @@ router.all('*', async request => {
 This snippet ties our worker to the router we defined above, all incoming requests
 are passed to the router where your routes are called and the response is sent.
 */
-addEventListener('fetch', e => {
+addEventListener('fetch', (e) => {
   e.respondWith(router.handle(e.request).catch(onError))
 })
 
@@ -70,6 +70,6 @@ addEventListener('fetch', e => {
 function onError(error) {
   console.error(error)
   return new Response('Error: ' + error.message || 'Server Error', {
-    status: error.status || 500
+    status: error.status || 500,
   })
 }
